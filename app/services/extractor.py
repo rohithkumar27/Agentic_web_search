@@ -62,6 +62,7 @@ class EntityExtractor:
             max_entities=max_entities,
         )
         schema = ExtractionOutput.model_json_schema()
+        schema = self._prepare_schema_for_openai(schema)
 
         output = self._run_with_retries(prompt=prompt, schema=schema)
         if output.entities:
@@ -76,6 +77,18 @@ class EntityExtractor:
         )
         recovery_output = self._run_with_retries(prompt=recovery_prompt, schema=schema)
         return recovery_output
+
+    def _prepare_schema_for_openai(self, schema: dict[str, Any]) -> dict[str, Any]:
+        """Patch schema for OpenAI strict json_schema compatibility."""
+        defs = schema.get("$defs", {}) if isinstance(schema, dict) else {}
+        entity_def = defs.get("ExtractedEntity") if isinstance(defs, dict) else None
+        if isinstance(entity_def, dict):
+            props = entity_def.get("properties")
+            if isinstance(props, dict):
+                key_attrs = props.get("key_attributes")
+                if isinstance(key_attrs, dict):
+                    key_attrs["additionalProperties"] = False
+        return schema
 
     def _run_with_retries(self, prompt: str, schema: dict[str, Any]) -> ExtractionOutput:
         last_error: Exception | None = None

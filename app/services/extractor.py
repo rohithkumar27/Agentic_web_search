@@ -80,14 +80,25 @@ class EntityExtractor:
 
     def _prepare_schema_for_openai(self, schema: dict[str, Any]) -> dict[str, Any]:
         """Patch schema for OpenAI strict json_schema compatibility."""
-        defs = schema.get("$defs", {}) if isinstance(schema, dict) else {}
-        entity_def = defs.get("ExtractedEntity") if isinstance(defs, dict) else None
-        if isinstance(entity_def, dict):
-            props = entity_def.get("properties")
-            if isinstance(props, dict):
-                key_attrs = props.get("key_attributes")
-                if isinstance(key_attrs, dict):
-                    key_attrs["additionalProperties"] = False
+        def patch_node(node: Any) -> None:
+            if isinstance(node, dict):
+                props = node.get("properties")
+                if isinstance(props, dict):
+                    # OpenAI strict json_schema requires all property keys to appear in required.
+                    node["required"] = list(props.keys())
+                    # OpenAI strict json_schema also requires explicit additionalProperties handling.
+                    node["additionalProperties"] = False
+
+                if node.get("type") == "object" and "properties" not in node and "additionalProperties" not in node:
+                    node["additionalProperties"] = False
+
+                for value in node.values():
+                    patch_node(value)
+            elif isinstance(node, list):
+                for item in node:
+                    patch_node(item)
+
+        patch_node(schema)
         return schema
 
     def _run_with_retries(self, prompt: str, schema: dict[str, Any]) -> ExtractionOutput:
@@ -234,3 +245,6 @@ class EntityExtractor:
             f"{prompt}\n\n"
             "Your previous output was invalid. Return valid JSON only and strictly match the schema."
         )
+
+
+

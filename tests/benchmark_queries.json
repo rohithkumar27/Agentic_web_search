@@ -1,0 +1,134 @@
+﻿[
+  {
+    "id": "q01_health_ai_startups",
+    "query": "AI startups in healthcare",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 3,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q02_open_source_databases",
+    "query": "open source database tools",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 5,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q03_brooklyn_pizza",
+    "query": "top pizza places in Brooklyn",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 5,
+      "max_latency_ms": 20000,
+      "max_errors": 6,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q04_vector_databases",
+    "query": "best vector database companies",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 4,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q05_cybersecurity_startups",
+    "query": "cybersecurity startups in Boston",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 3,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q06_fintech_infrastructure",
+    "query": "fintech infrastructure companies",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 4,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q07_sme_crm_tools",
+    "query": "CRM tools for small businesses",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 5,
+      "max_latency_ms": 20000,
+      "max_errors": 6,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q08_ml_monitoring_platforms",
+    "query": "ML monitoring platforms",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 4,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q09_cloud_cost_management",
+    "query": "cloud cost optimization tools",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 4,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q10_edtech_platforms",
+    "query": "online learning platforms for developers",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 4,
+      "max_latency_ms": 20000,
+      "max_errors": 6,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q11_observability_tools",
+    "query": "application observability tools",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 5,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  },
+  {
+    "id": "q12_legal_ai_assistants",
+    "query": "AI assistants for legal research",
+    "max_results": 10,
+    "heuristics": {
+      "min_entities": 3,
+      "max_latency_ms": 20000,
+      "max_errors": 5,
+      "require_traceability": true
+    }
+  }
+]

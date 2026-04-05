@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Local secrets
+.env
+
+# Local runtime/cache artifacts
+.cache/
+.test_runs/
+.pytest_tmp/
+.pytest_tmp_run/
+pytest-cache-files-*/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

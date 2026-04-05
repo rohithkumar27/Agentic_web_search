@@ -1,0 +1,238 @@
+{
+  "generated_at": "2026-04-05T00:18:42.592008+00:00",
+  "endpoint": "http://127.0.0.1:8000/search",
+  "in_process": true,
+  "total": 12,
+  "passed": 0,
+  "failed": 12,
+  "results": [
+    {
+      "id": "q01_health_ai_startups",
+      "query": "AI startups in healthcare",
+      "passed": false,
+      "reasons": [
+        "entities<3"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q02_open_source_databases",
+      "query": "open source database tools",
+      "passed": false,
+      "reasons": [
+        "entities<5"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q03_brooklyn_pizza",
+      "query": "top pizza places in Brooklyn",
+      "passed": false,
+      "reasons": [
+        "entities<5"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q04_vector_databases",
+      "query": "best vector database companies",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q05_cybersecurity_startups",
+      "query": "cybersecurity startups in Boston",
+      "passed": false,
+      "reasons": [
+        "entities<3"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q06_fintech_infrastructure",
+      "query": "fintech infrastructure companies",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q07_sme_crm_tools",
+      "query": "CRM tools for small businesses",
+      "passed": false,
+      "reasons": [
+        "entities<5"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q08_ml_monitoring_platforms",
+      "query": "ML monitoring platforms",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q09_cloud_cost_management",
+      "query": "cloud cost optimization tools",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q10_edtech_platforms",
+      "query": "online learning platforms for developers",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q11_observability_tools",
+      "query": "application observability tools",
+      "passed": false,
+      "reasons": [
+        "entities<5"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q12_legal_ai_assistants",
+      "query": "AI assistants for legal research",
+      "passed": false,
+      "reasons": [
+        "entities<3"
+      ],
+      "metrics": {
+        "search_results_count": 0,
+        "pages_crawled": 0,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 0,
+        "errors": [
+          "search_failed: SERPAPI_API_KEY is not configured."
+        ]
+      },
+      "entity_count": 0
+    }
+  ]
+}

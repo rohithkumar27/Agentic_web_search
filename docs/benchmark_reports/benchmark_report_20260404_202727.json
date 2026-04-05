@@ -1,0 +1,257 @@
+{
+  "generated_at": "2026-04-05T00:27:27.110942+00:00",
+  "endpoint": "http://127.0.0.1:8000/search",
+  "in_process": true,
+  "total": 12,
+  "passed": 0,
+  "failed": 12,
+  "results": [
+    {
+      "id": "q01_health_ai_startups",
+      "query": "AI startups in healthcare",
+      "passed": false,
+      "reasons": [
+        "entities<3"
+      ],
+      "metrics": {
+        "search_results_count": 9,
+        "pages_crawled": 6,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 6626,
+        "errors": [
+          "scrape_failed[https://medicalfuturist.com/top-artificial-intelligence-companies-in-healthcare]: Extracted content is too short to be reliable.",
+          "scrape_failed[https://hippocraticai.com/]: Page fetch failed with status 403.",
+          "scrape_failed[https://www.reddit.com/r/ycombinator/comments/1l1j6ld/medical_aitech_startups/]: Extracted content is too short to be reliable."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q02_open_source_databases",
+      "query": "open source database tools",
+      "passed": false,
+      "reasons": [
+        "entities<5"
+      ],
+      "metrics": {
+        "search_results_count": 9,
+        "pages_crawled": 8,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 7042,
+        "errors": [
+          "scrape_failed[https://www.reddit.com/r/Database/comments/1gchhek/what_are_the_best_open_sourcefree_dbs_to_use_for/]: Extracted content is too short to be reliable."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q03_brooklyn_pizza",
+      "query": "top pizza places in Brooklyn",
+      "passed": false,
+      "reasons": [
+        "entities<5"
+      ],
+      "metrics": {
+        "search_results_count": 8,
+        "pages_crawled": 4,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 5265,
+        "errors": [
+          "scrape_failed[https://www.reddit.com/r/Brooklyn/comments/173q8cs/best_pizza_in_brooklyn/]: Extracted content is too short to be reliable.",
+          "scrape_failed[https://www.tripadvisor.ca/Restaurants-g60827-c31-zfp19-Brooklyn_New_York.html]: Page fetch failed with status 403.",
+          "scrape_failed[https://www.northofbrooklyn.com/]: Extracted content is too short to be reliable.",
+          "scrape_failed[https://www.facebook.com/groups/742034912983989/posts/2255242521663213/]: Extracted content is too short to be reliable."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q04_vector_databases",
+      "query": "best vector database companies",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 9,
+        "pages_crawled": 6,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 4626,
+        "errors": [
+          "scrape_failed[https://www.reddit.com/r/MachineLearning/comments/1ijxrqj/whats_the_best_vector_db_whats_new_in_vector_db/]: Extracted content is too short to be reliable.",
+          "scrape_failed[https://www.datacamp.com/blog/the-top-5-vector-databases]: Page fetch failed with status 403.",
+          "scrape_failed[https://medium.com/the-ai-forum/which-vector-database-should-you-use-choosing-the-best-one-for-your-needs-5108ec7ba133]: Page fetch failed with status 403."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q05_cybersecurity_startups",
+      "query": "cybersecurity startups in Boston",
+      "passed": false,
+      "reasons": [
+        "entities<3"
+      ],
+      "metrics": {
+        "search_results_count": 10,
+        "pages_crawled": 5,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 11722,
+        "errors": [
+          "scrape_failed[https://www.f6s.com/companies/cyber-security/united-states/massachusetts/boston/co]: Page fetch failed with status 405.",
+          "scrape_failed[https://wellfound.com/startups/l/boston/security]: Page fetch failed with status 403.",
+          "scrape_failed[https://bostonstartupsguide.com/industry/cybersecurity/]: Network error while fetching page.",
+          "scrape_failed[https://www.damalion.com/boston-cybersecurity-startup-ecosystem/]: Page fetch failed with status 500.",
+          "scrape_failed[https://www.sortlist.com/s/cyber-security/boston-ma-us]: Page fetch failed with status 403."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q06_fintech_infrastructure",
+      "query": "fintech infrastructure companies",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 10,
+        "pages_crawled": 7,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 10277,
+        "errors": [
+          "scrape_failed[https://www.forbes.com/lists/fintech50/]: Page fetch failed with status 403.",
+          "scrape_failed[https://www.f6s.com/companies/fintech-infrastructure/united-states/co]: Page fetch failed with status 405.",
+          "scrape_failed[https://wellfound.com/job-collections/50-hot-consumer-fintech-startups]: Page fetch failed with status 403."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q07_sme_crm_tools",
+      "query": "CRM tools for small businesses",
+      "passed": false,
+      "reasons": [
+        "entities<5"
+      ],
+      "metrics": {
+        "search_results_count": 8,
+        "pages_crawled": 7,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 7868,
+        "errors": [
+          "scrape_failed[https://www.reddit.com/r/CRM/comments/1e5141p/best_and_inexpensive_crm_for_small_business/]: Extracted content is too short to be reliable."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q08_ml_monitoring_platforms",
+      "query": "ML monitoring platforms",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 10,
+        "pages_crawled": 8,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 7235,
+        "errors": [
+          "scrape_failed[https://www.reddit.com/r/mlops/comments/1fel84y/choosing_the_right_ml_model_model_monitoring_tool/]: Extracted content is too short to be reliable.",
+          "scrape_failed[https://www.datacamp.com/blog/top-mlops-tools]: Page fetch failed with status 403."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q09_cloud_cost_management",
+      "query": "cloud cost optimization tools",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 8,
+        "pages_crawled": 4,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 6085,
+        "errors": [
+          "scrape_failed[https://www.reddit.com/r/AZURE/comments/1l2bsip/cloud_cost_optimization_platforms_that_dont_suck/]: Extracted content is too short to be reliable.",
+          "scrape_failed[https://www.gartner.com/reviews/market/cloud-financial-management-tools]: Page fetch failed with status 403.",
+          "scrape_failed[https://ternary.app/blog/cloud-cost-management-tools/]: Page fetch failed with status 403.",
+          "scrape_failed[https://www.cloudzero.com/]: Page fetch failed with status 403."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q10_edtech_platforms",
+      "query": "online learning platforms for developers",
+      "passed": false,
+      "reasons": [
+        "entities<4"
+      ],
+      "metrics": {
+        "search_results_count": 9,
+        "pages_crawled": 8,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 8465,
+        "errors": [
+          "scrape_failed[https://www.reddit.com/r/learnprogramming/comments/1f4oy4l/which_online_learning_platform_helped_you_the/]: Extracted content is too short to be reliable."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q11_observability_tools",
+      "query": "application observability tools",
+      "passed": false,
+      "reasons": [
+        "entities<5"
+      ],
+      "metrics": {
+        "search_results_count": 9,
+        "pages_crawled": 7,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 6396,
+        "errors": [
+          "scrape_failed[https://www.gartner.com/reviews/market/observability-platforms]: Page fetch failed with status 403.",
+          "scrape_failed[https://www.solarwinds.com/solarwinds-observability]: Page fetch failed with status 403."
+        ]
+      },
+      "entity_count": 0
+    },
+    {
+      "id": "q12_legal_ai_assistants",
+      "query": "AI assistants for legal research",
+      "passed": false,
+      "reasons": [
+        "entities<3"
+      ],
+      "metrics": {
+        "search_results_count": 9,
+        "pages_crawled": 7,
+        "tokens_used": 0,
+        "estimated_cost": 0.0,
+        "latency_ms": 7532,
+        "errors": [
+          "scrape_failed[https://legal.thomsonreuters.com/blog/legal-ai-tools-essential-for-attorneys/]: Page fetch failed with status 403.",
+          "scrape_failed[https://www.americanbar.org/groups/law_practice/resources/law-technology-today/2024/ai-tools-for-legal-work-claude-gemini-copilot-and-more/]: Page fetch failed with status 403."
+        ]
+      },
+      "entity_count": 0
+    }
+  ]
+}

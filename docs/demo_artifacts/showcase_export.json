@@ -1,0 +1,19 @@
+{
+  "run_id": "run_e6b5073a71",
+  "query": "AI startups in healthcare",
+  "saved_at": "2026-04-04T23:49:28.175644+00:00",
+  "result": {
+    "run_id": "run_e6b5073a71",
+    "entities": [],
+    "metrics": {
+      "search_results_count": 0,
+      "pages_crawled": 0,
+      "tokens_used": 0,
+      "estimated_cost": 0.0,
+      "latency_ms": 0,
+      "errors": [
+        "search_failed: SERPAPI_API_KEY is not configured."
+      ]
+    }
+  }
+}

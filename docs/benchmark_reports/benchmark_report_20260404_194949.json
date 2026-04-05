@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-04-04T23:49:49.666021+00:00",
+  "endpoint": "http://127.0.0.1:8000/search",
+  "total": 12,
+  "passed": 0,
+  "failed": 12,
+  "results": [
+    {
+      "id": "q01_health_ai_startups",
+      "query": "AI startups in healthcare",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q02_open_source_databases",
+      "query": "open source database tools",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q03_brooklyn_pizza",
+      "query": "top pizza places in Brooklyn",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q04_vector_databases",
+      "query": "best vector database companies",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q05_cybersecurity_startups",
+      "query": "cybersecurity startups in Boston",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q06_fintech_infrastructure",
+      "query": "fintech infrastructure companies",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q07_sme_crm_tools",
+      "query": "CRM tools for small businesses",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q08_ml_monitoring_platforms",
+      "query": "ML monitoring platforms",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q09_cloud_cost_management",
+      "query": "cloud cost optimization tools",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q10_edtech_platforms",
+      "query": "online learning platforms for developers",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q11_observability_tools",
+      "query": "application observability tools",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    },
+    {
+      "id": "q12_legal_ai_assistants",
+      "query": "AI assistants for legal research",
+      "passed": false,
+      "reasons": [
+        "request_error:<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      ],
+      "metrics": {},
+      "entity_count": 0
+    }
+  ]
+}

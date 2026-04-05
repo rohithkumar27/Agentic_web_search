@@ -1,0 +1,515 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agentic Search Console</title>
+  <style>
+    :root {
+      --bg: #f6f3ea;
+      --panel: #fffaf0;
+      --ink: #1f2a37;
+      --muted: #586375;
+      --accent: #006d77;
+      --accent-soft: #cfe9e4;
+      --danger: #b42318;
+      --line: #d5d0c4;
+      --badge-hi: #157f3f;
+      --badge-mid: #b55f00;
+      --badge-lo: #8e1d1d;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, #fff3cf 0%, transparent 38%),
+        radial-gradient(circle at 100% 10%, #d8f3ef 0%, transparent 35%),
+        var(--bg);
+      min-height: 100vh;
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 16px 64px;
+      animation: rise 420ms ease-out;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .card {
+      background: color-mix(in oklab, var(--panel), white 25%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(31, 42, 55, 0.08);
+    }
+
+    .search-card {
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr auto auto;
+      align-items: end;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    input, select, button {
+      font: inherit;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      padding: 11px 12px;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid color-mix(in oklab, var(--accent), white 55%);
+      border-color: var(--accent);
+    }
+
+    button {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 130ms ease, filter 130ms ease;
+    }
+
+    button:hover { filter: brightness(1.08); }
+    button:active { transform: translateY(1px); }
+    button:disabled { opacity: 0.6; cursor: default; }
+
+    .meta-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .meta {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .meta b {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .meta span {
+      display: block;
+      margin-top: 5px;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      margin-top: 14px;
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 860px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 0.93rem;
+    }
+
+    th {
+      background: #fbf6e8;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      font-size: 0.79rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    th[data-sort] {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.79rem;
+      color: white;
+    }
+
+    .b-hi { background: var(--badge-hi); }
+    .b-mid { background: var(--badge-mid); }
+    .b-lo { background: var(--badge-lo); }
+
+    .evi {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      padding: 0;
+      border: 0;
+    }
+
+    .status {
+      min-height: 24px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .status.err { color: var(--danger); }
+
+    .drawer {
+      position: fixed;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: min(430px, 92vw);
+      background: #fff;
+      border-left: 1px solid var(--line);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.12);
+      transform: translateX(100%);
+      transition: transform 220ms ease;
+      z-index: 20;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .drawer.open { transform: translateX(0); }
+
+    .drawer header {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer .body {
+      padding: 14px;
+      overflow: auto;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .drawer .body p { margin: 0 0 10px; }
+    .drawer a { color: var(--accent); word-break: break-all; }
+
+    .close {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      padding: 7px 10px;
+    }
+
+    @media (max-width: 860px) {
+      .row { grid-template-columns: 1fr; }
+      .meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <h1>Agentic Search Console</h1>
+    <p class="subtitle">Run a query, inspect confidence, and open per-field evidence in one place.</p>
+
+    <section class="card search-card">
+      <div class="row">
+        <div>
+          <label for="query">Topic Query</label>
+          <input id="query" name="query" type="text" value="AI startups in healthcare" />
+        </div>
+        <div>
+          <label for="max">Max Results</label>
+          <select id="max" name="max">
+            <option>5</option>
+            <option selected>10</option>
+            <option>15</option>
+            <option>20</option>
+          </select>
+        </div>
+        <button id="runBtn" type="button">Run Search</button>
+      </div>
+
+      <div class="row" style="grid-template-columns: 1fr auto; align-items:end;">
+        <div>
+          <label for="filter">Filter By Category</label>
+          <input id="filter" type="text" placeholder="e.g. startup" />
+        </div>
+        <button id="exportBtn" type="button" disabled>Export JSON</button>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+      <div id="errorBox" class="status err" style="white-space: pre-wrap;"></div>
+
+      <div class="meta-grid">
+        <div class="meta"><b>Run ID</b><span id="mRun">-</span></div>
+        <div class="meta"><b>Latency</b><span id="mLatency">-</span></div>
+        <div class="meta"><b>Pages Crawled</b><span id="mPages">-</span></div>
+        <div class="meta"><b>Estimated Cost</b><span id="mCost">-</span></div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th data-sort="entity_name">Entity</th>
+              <th data-sort="category">Category</th>
+              <th>Description</th>
+              <th data-sort="confidence_score">Confidence</th>
+              <th>Sources</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <header>
+      <strong id="dTitle">Evidence</strong>
+      <button id="closeDrawer" class="close" type="button">Close</button>
+    </header>
+    <div class="body">
+      <p><b>Value</b></p>
+      <p id="dValue">-</p>
+      <p><b>Snippet</b></p>
+      <p id="dSnippet">-</p>
+      <p><b>Source URL</b></p>
+      <a id="dUrl" href="#" target="_blank" rel="noreferrer">-</a>
+    </div>
+  </aside>
+
+  <script>
+    const state = {
+      runId: null,
+      entities: [],
+      sortKey: "confidence_score",
+      sortDir: "desc"
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    function scoreBadge(score) {
+      const cls = score >= 0.75 ? "b-hi" : score >= 0.45 ? "b-mid" : "b-lo";
+      return `<span class="badge ${cls}">${score.toFixed(2)}</span>`;
+    }
+
+    function esc(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function setStatus(msg, isErr = false) {
+      const el = $("status");
+      el.textContent = msg;
+      el.classList.toggle("err", isErr);
+    }
+
+    function sortRows(list) {
+      const dir = state.sortDir === "asc" ? 1 : -1;
+      return [...list].sort((a, b) => {
+        const va = a[state.sortKey] ?? "";
+        const vb = b[state.sortKey] ?? "";
+        if (typeof va === "number" && typeof vb === "number") return (va - vb) * dir;
+        return String(va).localeCompare(String(vb)) * dir;
+      });
+    }
+
+    function filteredRows(list) {
+      const token = $("filter").value.trim().toLowerCase();
+      if (!token) return list;
+      return list.filter((e) => (e.category || "").toLowerCase().includes(token));
+    }
+
+    function showEvidence(entity, fieldName) {
+      const e = (entity.field_evidence || {})[fieldName];
+      if (!e) {
+        setStatus(`No evidence found for ${fieldName}.`, true);
+        return;
+      }
+      $("dTitle").textContent = `${entity.entity_name} - ${fieldName}`;
+      $("dValue").textContent = String(e.value ?? "-");
+      $("dSnippet").textContent = e.evidence_snippet || "-";
+      const url = $("dUrl");
+      url.href = e.source_url || "#";
+      url.textContent = e.source_url || "-";
+      $("drawer").classList.add("open");
+      $("drawer").setAttribute("aria-hidden", "false");
+    }
+
+    function renderTable() {
+      const rowsEl = $("rows");
+      rowsEl.innerHTML = "";
+      const sorted = sortRows(filteredRows(state.entities));
+
+      for (const entity of sorted) {
+        const tr = document.createElement("tr");
+        const sources = (entity.sources || []).map((u) => `<a href="${esc(u)}" target="_blank" rel="noreferrer">${esc(new URL(u).host)}</a>`).join(", ");
+
+        tr.innerHTML = `
+          <td>${esc(entity.entity_name || "-")}</td>
+          <td>
+            ${esc(entity.category || "-")}
+            <div><button class="evi" data-field="category">evidence</button></div>
+          </td>
+          <td>
+            ${esc(entity.description || "-")}
+            <div><button class="evi" data-field="description">evidence</button></div>
+          </td>
+          <td>${scoreBadge(Number(entity.confidence_score || 0))}</td>
+          <td>${sources || "-"}</td>
+        `;
+
+        tr.querySelectorAll(".evi").forEach((btn) => {
+          btn.addEventListener("click", () => showEvidence(entity, btn.dataset.field));
+        });
+
+        rowsEl.appendChild(tr);
+      }
+    }
+
+    function renderErrors(errs) {
+      const box = $("errorBox");
+      if (!errs || !errs.length) {
+        box.textContent = "";
+        return;
+      }
+      box.textContent = errs.map((e, i) => `${i + 1}. ${e}`).join("\n");
+    }
+    async function runSearch() {
+      const query = $("query").value.trim();
+      const max_results = Number($("max").value || "10");
+
+      if (query.length < 3) {
+        setStatus("Query must be at least 3 characters.", true);
+        return;
+      }
+
+      setStatus("Running search...");
+      $("runBtn").disabled = true;
+
+      try {
+        const response = await fetch("/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query, max_results })
+        });
+
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.detail || "Search failed");
+
+        state.runId = data.run_id;
+        state.entities = data.entities || [];
+
+        $("mRun").textContent = data.run_id || "-";
+        $("mLatency").textContent = `${data.metrics?.latency_ms ?? 0} ms`;
+        $("mPages").textContent = String(data.metrics?.pages_crawled ?? 0);
+        $("mCost").textContent = `$${Number(data.metrics?.estimated_cost ?? 0).toFixed(4)}`;
+
+        $("exportBtn").disabled = !state.runId;
+        renderTable();
+
+        const errs = data.metrics?.errors || [];
+        renderErrors(errs);
+        setStatus(errs.length ? `Completed with ${errs.length} warning(s).` : `Completed. ${state.entities.length} entities loaded.`);
+      } catch (err) {
+        state.entities = [];
+        renderTable();
+        renderErrors([String(err.message || err)]);
+        setStatus(String(err.message || err), true);
+      } finally {
+        $("runBtn").disabled = false;
+      }
+    }
+
+    function initSort() {
+      document.querySelectorAll("th[data-sort]").forEach((th) => {
+        th.addEventListener("click", () => {
+          const key = th.dataset.sort;
+          if (state.sortKey === key) {
+            state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+          } else {
+            state.sortKey = key;
+            state.sortDir = key === "confidence_score" ? "desc" : "asc";
+          }
+          renderTable();
+        });
+      });
+    }
+
+    $("runBtn").addEventListener("click", runSearch);
+    $("filter").addEventListener("input", renderTable);
+    $("exportBtn").addEventListener("click", () => {
+      if (!state.runId) return;
+      window.open(`/export/${state.runId}.json`, "_blank");
+    });
+    $("closeDrawer").addEventListener("click", () => {
+      $("drawer").classList.remove("open");
+      $("drawer").setAttribute("aria-hidden", "true");
+    });
+
+    initSort();
+    renderTable();
+  </script>
+</body>
+</html>
+
+
+

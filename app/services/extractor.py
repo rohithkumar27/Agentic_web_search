@@ -99,6 +99,19 @@ class EntityExtractor:
                     patch_node(item)
 
         patch_node(schema)
+
+        # OpenAI's strict validator is picky about free-form object fields.
+        # Exclude key_attributes from the response schema while keeping runtime default handling.
+        defs = schema.get("$defs", {}) if isinstance(schema, dict) else {}
+        entity_def = defs.get("ExtractedEntity") if isinstance(defs, dict) else None
+        if isinstance(entity_def, dict):
+            props = entity_def.get("properties")
+            if isinstance(props, dict) and "key_attributes" in props:
+                props.pop("key_attributes", None)
+                required = entity_def.get("required")
+                if isinstance(required, list):
+                    entity_def["required"] = [k for k in required if k != "key_attributes"]
+
         return schema
 
     def _run_with_retries(self, prompt: str, schema: dict[str, Any]) -> ExtractionOutput:
